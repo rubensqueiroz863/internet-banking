@@ -1,0 +1,37 @@
+button {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+span {
+  width: 24px;
+  height: 3px;
+  background-color: var(--text-main);
+  border-radius: 6px;
+  transform-origin: left center;
+}
+
+.spanx1,
+.mid,
+.spanx2 {
+  transition: transform 0.25s ease;
+}
+
+.spanx1 {
+  transform: rotate(var(--rotate-x1))
+  translateY(var(--translatey-x1));
+}
+
+.spanx2 {
+  transform: rotate(var(--rotate-x2))
+  translateY(var(--translatey-x2));
+}
+
+.mid {
+  opacity: var(--opacity-mid);
+}

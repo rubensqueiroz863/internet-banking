@@ -1,0 +1,12 @@
+<button
+  (click)="toggle()"
+  [style.--rotate-x1]="useMenu.isOpen ? '45deg' : '0deg'"
+  [style.--rotate-x2]="useMenu.isOpen ? '-45deg' : '0deg'"
+  [style.--translatey-x1]="useMenu.isOpen ? '-2px' : '0'"
+  [style.--translatey-x2]="useMenu.isOpen ? '2px' : '0'"
+  [style.--opacity-mid]="useMenu.isOpen ? '0' : '1'"
+>
+  <span class="spanx1"></span>
+  <span class="mid"></span>
+  <span class="spanx2"></span>
+</button>
