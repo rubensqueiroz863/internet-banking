@@ -7,6 +7,7 @@ button {
   padding: 0;
   cursor: pointer;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 span {
   width: 24px;

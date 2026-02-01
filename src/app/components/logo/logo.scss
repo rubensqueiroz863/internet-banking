@@ -5,3 +5,8 @@ a {
     text-decoration: none;
   }
 }
+
+a:focus-visible {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
