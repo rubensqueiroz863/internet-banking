@@ -5,7 +5,13 @@ nav {
   align-items: center;
   padding: 0px 28px;
   position: fixed;
-  background-color: var(--bg-card);
   height: 54px;
   width: 100%;
+  background-color: color-mix(
+    in srgb,
+    var(--bg-card) 80%,
+    transparent
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
