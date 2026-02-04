@@ -1,0 +1,13 @@
+.login-button {
+  width: 120px;
+  height: 34px;
+  background-color: var(--text-main);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+  z-index: 50;
+}
+
+.login-button:hover {
+  opacity: 0.8;
+}

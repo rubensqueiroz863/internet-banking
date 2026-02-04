@@ -1,12 +1,7 @@
-a {
+.logo {
   p {
     color: var(--text-main);
     font-family: 'AlfaSlabOne';
-    text-decoration: none;
   }
-}
-
-a:focus-visible {
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
