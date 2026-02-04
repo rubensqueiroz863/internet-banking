@@ -1,4 +1,4 @@
-nav {
+.navbar {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -15,4 +15,11 @@ nav {
   );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.div-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
 }
