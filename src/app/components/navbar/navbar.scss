@@ -7,9 +7,10 @@ nav {
   position: fixed;
   height: 54px;
   width: 100%;
+  z-index: 50;
   background-color: color-mix(
     in srgb,
-    var(--bg-card) 80%,
+    var(--bg-card) 95%,
     transparent
   );
   backdrop-filter: blur(10px);
