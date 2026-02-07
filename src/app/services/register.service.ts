@@ -14,7 +14,7 @@ interface RegisterRequest {
 })
 export class RegisterService {
 
-  private readonly api = 'http://localhost:8080/auth';
+  private readonly api = 'https://brave-annis-banking-backend-1d47545b.koyeb.app/auth';
 
   constructor(private readonly http: HttpClient) {}
 

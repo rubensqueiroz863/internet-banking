@@ -1,0 +1,11 @@
+<div class="principal">
+  <div class="register-form">
+    <h1>Acesse agora sua conta Internet Banking</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <input type="text" formControlName="name" placeholder="Digite seu nome">
+      <input type="text" formControlName="cpf" placeholder="Digite seu CPF">
+      <input type="email" formControlName="email" placeholder="Digite seu Email">
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
