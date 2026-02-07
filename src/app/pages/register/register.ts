@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
+import { CpfMask } from '../../shared/directives/cpf-mask';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CpfMask],
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
@@ -17,7 +18,8 @@ export class Register {
     this.registerForm = this.fb.group({
       name: [''],
       cpf: [''],
-      email: ['']
+      email: [''],
+      password: ['']
     });
   }
 
@@ -28,10 +30,10 @@ export class Register {
 
     this.registerService.register(formValue).subscribe({
       next: (res) => {
-        console.log(res);
+        alert("Usuário cadastrado.")
       },
       error: (err) => {
-        console.log(err);
+        console.log(`Erro: ${err}`);
       }
     });
   }

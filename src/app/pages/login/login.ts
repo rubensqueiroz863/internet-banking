@@ -1,60 +1,41 @@
 import { Component } from '@angular/core';
-import { RegisterService } from '../../services/register.service';
 import { LoginService } from '../../services/login.service';
-import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CpfMask } from '../../shared/directives/cpf-mask';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  standalone: true,
+  imports: [ReactiveFormsModule, CpfMask],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
 export class Login {
-  constructor(private readonly registerService: RegisterService, private readonly loginService: LoginService, private readonly authService: AuthService) {}
 
-  register() {
-    const user = {
-      cpf: '123456789',
-      name: 'Rubens',
-      email: 'rubens@gmail.com',
-      password: '123456'
-    };
+  loginForm: FormGroup;
 
-    this.registerService.register(user).subscribe({
-      next: (res) => {
-        console.log('Sucesso', res);
-      },
-      error: (err) => {
-        console.log('Erro: ', err.error)
-      }
-    })
+  constructor(private readonly fb: FormBuilder, private readonly loginService: LoginService) {
+    this.loginForm = this.fb.group({
+      cpf: [''],
+      password: ['']
+    });
   }
 
   login() {
-    this.loginService.login('123456789', '123456')
+    const formValue = this.loginForm.getRawValue();
+
+    formValue.cpf = formValue.cpf.replaceAll(/\D/g, '');
+
+    this.loginService.login(formValue)
       .subscribe({
         next: (res) => {
-          console.log(res);
-
+          alert("Usuário logado.");
           localStorage.setItem('token', res.token);
         },
         error: (err) => {
-          console.log(err);
+          alert(`Erro: ${err}`);
         }
       });
   }
-
-  auth() {
-    this.authService.me()
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      });
-  }
-
 }
 

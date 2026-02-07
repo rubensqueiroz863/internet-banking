@@ -1,11 +1,10 @@
-<div class="loginPage">
-  <button (click)="register()">
-    Registrar
-  </button>
-  <button (click)="login()">
-    Login
-  </button>
-  <button (click)="auth()">
-    Auth
-  </button>
+<div class="principal">
+  <div class="register-form">
+    <h1>Acesse agora sua conta Internet Banking</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <input type="text" formControlName="cpf" appCpfMask placeholder="Digite seu CPF">
+      <input type="text" formControlName="password" placeholder="Digite sua senha">
+      <button type="submit">Fazer Login</button>
+    </form>
+  </div>
 </div>

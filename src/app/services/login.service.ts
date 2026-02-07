@@ -8,6 +8,11 @@ interface AuthResponse {
   cpf: string;
 }
 
+interface LoginRequest {
+  cpf: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,10 +22,7 @@ export class LoginService {
 
   constructor(private readonly http: HttpClient) {}
 
-  login(cpf: string, password: string): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.api}/login`, {
-      cpf,
-      password
-    });
+  login(data: LoginRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.api}/login`, data);
   }
 }
