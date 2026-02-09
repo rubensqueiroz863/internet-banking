@@ -6,9 +6,9 @@ import { useMenu } from '../../services/menu.service';
 @Component({
   selector: 'app-home',
   imports: [Navbar, Menudrawer],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './landingpage.html',
+  styleUrl: './landingpage.scss',
 })
-export class Home {
+export class LandingPage {
   constructor(public useMenu: useMenu) {}
 }
