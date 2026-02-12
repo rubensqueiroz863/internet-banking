@@ -1,4 +1,5 @@
 <div class="principal">
+  <img src="assets/homebackground1.jpg" alt="Background" />
   <div class="register-form">
     <h1>Acesse agora sua conta Internet Banking</h1>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -6,5 +7,6 @@
       <input type="text" formControlName="password" placeholder="Digite sua senha">
       <button type="submit">Fazer Login</button>
     </form>
+    <a href="/register">Ainda não tem uma conta?</a>
   </div>
 </div>
