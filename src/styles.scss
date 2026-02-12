@@ -23,6 +23,12 @@ html, body {
   background-color: var(--bg-main);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: 'AlfaSlabOne';
   src: url('/fonts/AlfaSlabOne-Regular.ttf');
