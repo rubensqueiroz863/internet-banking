@@ -2,6 +2,7 @@
   p {
     color: var(--text-main);
     font-family: 'AlfaSlabOne' Arial, Helvetica, sans-serif;
+    font-size: clamp(1.5rem, 1.8vw, 1.2rem);
   }
   cursor: pointer;
 }

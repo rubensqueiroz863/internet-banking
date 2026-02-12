@@ -8,7 +8,7 @@
 
   background-color: color-mix(
     in srgb,
-    var(--bg-card) 98%,
+    var(--bg-card) 50%,
     transparent
   );
 
@@ -20,4 +20,77 @@
 :host(.open) {
   transform: translateY(0);
   pointer-events: auto;
+}
+
+div {
+  height: 100%;
+  display: flex;
+  justify-content: center; /* centro horizontal */
+  align-items: center;   /* joga pra baixo */
+  padding-top: 180px;
+}
+
+.buttons {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: clamp(1.5rem, 1.8vw, 1.2rem);
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    gap: 12px;
+    width: 60%;
+    button {
+      flex: 1; // preenche igualmente
+    }
+  }
+}
+
+
+.login-button {
+  width: 100%;
+  height: 48px;
+  z-index: 50;
+  padding: 0 14px;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: white;
+  color: #6366F1;
+
+  font-weight: 600;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.35);
+}
+
+.register-button {
+  width: 100%;
+  height: 48px;
+  z-index: 50;
+  padding: 0 14px;
+
+  border-radius: 10px;
+  border: none;
+
+  background-color: #6366F1;
+  color: white;
+
+  font-weight: 600;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.register-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }

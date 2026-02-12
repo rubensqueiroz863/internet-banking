@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Navbar } from "../../components/navbar/navbar";
 import { Menudrawer } from "../../components/menudrawer/menudrawer";
 import { useMenu } from '../../services/menu.service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  imports: [Navbar, Menudrawer],
+  imports: [Navbar, Menudrawer, RouterLink],
   templateUrl: './landingpage.html',
   styleUrl: './landingpage.scss',
 })
