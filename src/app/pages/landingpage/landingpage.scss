@@ -1,4 +1,78 @@
-img {
-  width: 100%;
-  height: auto;
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  // remove scrollbar (opcional)
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slide {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+
+  display: flex;
+  align-items: center; // centraliza vertical
+  padding-left: clamp(20px, 8vw, 140px);
+
+  // 🔥 overlay escuro automático
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  // container do texto (MUITO melhor que posicionar cada elemento)
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    margin-bottom: 25px;
+    font-weight: normal;
+  }
+
+  p {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: opacity 200ms;
+
+    user-select: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
