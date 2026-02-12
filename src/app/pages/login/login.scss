@@ -6,8 +6,21 @@
   background: linear-gradient(135deg, var(--bg-main), var(--bg-card));
 }
 
+img {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  pointer-events: none;
+  user-select: none;
+}
+
 .register-form {
   width: 420px;
+  z-index: 40; 
   padding: 40px;
   border-radius: 20px;
   background-color: var(--bg-card);
@@ -26,6 +39,11 @@
     font-size: 22px;
     font-weight: 700;
     text-align: center;
+  }
+
+  a {
+    text-align: center;
+    color: #E5E7EB;
   }
 
   form {
