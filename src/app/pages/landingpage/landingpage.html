@@ -1,5 +1,42 @@
 <div>
   <app-navbar></app-navbar>
-  <img src="assets/homebackground.jpg" alt="Background" />
+  <div class="scroll-container">
+    <section class="slide">
+      <img src="assets/homebackground1.jpg" alt="Background" />
+
+      <div class="content">
+        <h1>O Super App da sua vida financeira.</h1>
+        <p>
+          Abra sua conta
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/> 
+          </svg>
+        </p>
+      </div>
+    </section>
+    <section class="slide">
+      <img src="assets/homebackground2.jpeg" alt="Background" />
+
+      <div class="content">
+        <h1>Segurança para tudo.</h1>
+        <h2>Transações rápidas e mais seguras.</h2>
+
+        <p>
+          Abra sua conta
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </p>
+      </div>
+    </section>
+  </div>
   <app-menudrawer [class.open]="useMenu.isOpen"></app-menudrawer>
 </div>
