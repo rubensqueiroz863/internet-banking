@@ -50,6 +50,11 @@ img {
     color: #E5E7EB;
   }
 
+  .error {
+    color: var(--error);
+    text-align: center;
+  }
+
   form {
     display: flex;
     flex-direction: column;
