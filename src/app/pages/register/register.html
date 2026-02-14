@@ -4,12 +4,27 @@
   <div class="register-form">
     <h1>Acesse agora sua conta Internet Banking</h1>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
-      <input type="text" formControlName="name" placeholder="Digite seu nome">
-      <input type="text" formControlName="cpf" appCpfMask placeholder="Digite seu CPF">
-      <input type="email" formControlName="email" placeholder="Digite seu Email">
-      <input type="text" formControlName="password" placeholder="Digite sua senha">
+      <input type="text" required formControlName="name" placeholder="Digite seu nome">
+      <input type="text" required formControlName="cpf" appCpfMask placeholder="Digite seu CPF">
+      <input type="email" required formControlName="email" placeholder="Digite seu Email">
+      <input type="password" formControlName="password" minlength="8" maxlength="8" placeholder="Digite sua senha">
+      @if (
+        registerForm.get('password')?.touched &&
+        registerForm.get('password')?.errors?.['minlength']
+      ) {
+        <p class="error">
+          A senha precisa ter pelo menos 8 caracteres.
+        </p>
+      }
       <button type="submit">Cadastrar</button>
+      
     </form>
+    @if (showMessage) {
+      <p class="error">
+        {{ resultText }}
+      </p>
+    }
+    
     <a href="/login">Já possui uma conta?</a>
   </div>
 </div>

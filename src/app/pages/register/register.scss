@@ -46,8 +46,13 @@ img {
   }
 
   a {
-    text-align: center;
     color: #E5E7EB;
+    text-align: center;
+  }
+
+  .error {
+    color: var(--error);
+    text-align: center;
   }
 
   form {

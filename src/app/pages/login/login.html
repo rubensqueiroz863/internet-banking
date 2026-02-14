@@ -4,9 +4,22 @@
     <h1>Acesse agora sua conta Internet Banking</h1>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <input type="text" formControlName="cpf" appCpfMask placeholder="Digite seu CPF">
-      <input type="text" formControlName="password" placeholder="Digite sua senha">
+      <input type="text" maxlength="8" minlength="8" formControlName="password" placeholder="Digite sua senha">
+      @if (
+        loginForm.get('password')?.touched &&
+        loginForm.get('password')?.errors?.['minlength']
+      ) {
+        <p class="error">
+          A senha precisa ter pelo menos 8 caracteres.
+        </p>
+      }
       <button type="submit">Fazer Login</button>
     </form>
+    @if (showMessage) {
+      <p class="error">
+        {{ resultText }}
+      </p>
+    }
     <a href="/register">Ainda não tem uma conta?</a>
   </div>
 </div>
