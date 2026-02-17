@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../../services/login.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CpfMask } from '../../shared/directives/cpf-mask';
 import { Router } from '@angular/router';
 import { ValidarCpfService } from '../../services/validarcpf.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,9 @@ export class Login {
   loginForm: FormGroup;
   resultText = "";
   showMessage = false;
+  isLoading = false;
 
-  constructor(private readonly fb: FormBuilder, private readonly loginService: LoginService, private readonly router: Router, private readonly validarCpf: ValidarCpfService) {
+  constructor(private readonly fb: FormBuilder, private readonly authService: AuthService, private readonly router: Router, private readonly validarCpf: ValidarCpfService) {
     this.loginForm = this.fb.group({
       cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]]
@@ -49,16 +50,23 @@ export class Login {
       return;
     }
 
-    this.loginService.login(formValue)
+    this.isLoading = true;
+
+    this.authService.login(formValue)
       .subscribe({
         next: (res) => {
-          localStorage.setItem('token', res.token);
+          this.authService.saveToken(res.token);
+          localStorage.setItem('accountId', res.accountId);
+          this.isLoading = false;
           this.router.navigate(['/home']);
         },
-        error: (err) => {
+        error: () => {
           this.onError("");
         }
       });
+
+    this.isLoading = false;
   }
+
 }
 
