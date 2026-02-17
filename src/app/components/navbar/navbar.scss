@@ -8,11 +8,7 @@
   height: 54px;
   width: 100%;
   z-index: 50;
-  background-color: color-mix(
-    in srgb,
-    var(--bg-card) 95%,
-    transparent
-  );
+  background-color: var(--bg-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }

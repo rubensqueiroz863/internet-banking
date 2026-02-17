@@ -1,0 +1,167 @@
+.navbarhome {
+  position: relative;
+  background-color: var(--bg-card);
+  z-index: 100;
+}
+
+.cima {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px 60px;
+}
+
+.balance-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.4;
+  }
+
+  .balance-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+
+    .balance {
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .hidden {
+      background-color: var(--text-secondary);
+      color: transparent;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    p {
+      width: 120px;
+      margin: 0;
+      font-style: normal;
+    }
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.side {
+  height: 25px;
+  min-width: 1px;
+  background-color: var(--text-muted);
+}
+
+.loading {
+  width: 10px;
+  margin-left: 12px;
+  height: 10px; 
+  border: 1px solid #101010;
+  border-top: 5px solid var(--bg-card);
+  border-radius: 100%;
+  animation: spin 0.8s linear infinite; 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--bg-secondary);
+  padding: 6px;
+  border-radius: 100%;
+}
+
+.user-div {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+  gap: 10px;
+} 
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 60px; 
+  pointer-events: none;
+
+  p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    min-width: 25%;
+    height: 50px;
+    text-align: center;
+    color: var(--text-main);
+    pointer-events: all;
+
+    span {
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 3px;
+      width: 0;
+      background-color: #6366F1;
+      transition: width 0.1s ease;
+    }
+
+    /* Hover normal */
+    &:hover span {
+      width: 100%;
+    }
+
+    /* Página ativa */
+    &.active span {
+      width: 100%;
+    }
+  }
+
+  /* 🔥 MÁGICA AQUI */
+  &:hover p.active:not(:hover) span {
+    width: 0;
+  }
+}
+
+.blur {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

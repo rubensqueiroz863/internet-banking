@@ -1,0 +1,101 @@
+<nav class="navbarhome">
+  <div class="cima">
+    <app-logo></app-logo>
+    <div class="user">
+      <div class="balance-menu">
+        <app-showinfomenu></app-showinfomenu>
+        <div class="balance-div">
+          <p>saldo</p>
+          @if (!showInfoService.isOpen && !isLoading) {
+            <p class="balance">{{ balance.balance | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+          } @else if (showInfoService.isOpen) {
+            <p class="hidden">{{ balance.balance | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+          } @else if(isLoading) {
+            <span class="loading"></span> 
+          } 
+        </div>
+        <button class="extrato" [routerLink]="'/'">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M1 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/> 
+          </svg>
+        </button>
+        
+      </div>
+      <div class="user-div">
+        <span class="side"></span>
+        <div class="user-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+          </svg>
+        </div>
+        <span class="side"></span>
+      </div> 
+    </div>
+  </div>
+  <div class="menu"> 
+    <p
+      (mouseenter)="openMenu('home')" 
+      (mouseleave)="closeMenu()">
+      Início
+      <span></span>
+    </p>
+    <p 
+      (mouseenter)="openMenu('conta')" 
+      (mouseleave)="closeMenu()">
+      Conta Digital
+      <span></span>
+    </p>
+
+    <p 
+      (mouseenter)="openMenu('transacoes')" 
+      (mouseleave)="closeMenu()">
+      Transações
+      <span></span>
+    </p>
+    <p
+      (mouseenter)="openMenu('cartoes')" 
+      (mouseleave)="closeMenu()">
+      Cartões
+      <span></span>
+    </p>
+  </div>
+</nav>
+
+@if (selectedMenu === 'home') {
+  <div 
+    class="blur"
+    (mouseenter)="openMenu('home')"
+    (mouseleave)="closeMenu()">
+  </div>
+} @else if (selectedMenu === 'conta') {
+  <div 
+    class="blur"
+    (mouseenter)="openMenu('conta')"
+    (mouseleave)="closeMenu()">
+
+    <div>conta</div>
+  </div>
+} @else if (selectedMenu === 'transacoes') {
+  <div 
+    class="blur"
+    (mouseenter)="openMenu('transacoes')"
+    (mouseleave)="closeMenu()">
+
+    <div>transações</div>
+  </div>
+} @else if (selectedMenu === 'cartoes') {
+  <div 
+    class="blur"
+    (mouseenter)="openMenu('cartoes')"
+    (mouseleave)="closeMenu()">
+
+    <div>cartões</div>
+  </div>
+}
