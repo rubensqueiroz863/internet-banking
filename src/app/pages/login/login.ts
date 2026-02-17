@@ -27,7 +27,7 @@ export class Login {
   }
 
   onSuccess() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home']); 
   }
 
   onError(message: string) {
@@ -55,6 +55,8 @@ export class Login {
     this.authService.login(formValue)
       .subscribe({
         next: (res) => {
+          localStorage.removeItem("token");
+          localStorage.removeItem("accountId");
           this.authService.saveToken(res.token);
           localStorage.setItem('accountId', res.accountId);
           this.isLoading = false;
@@ -62,10 +64,9 @@ export class Login {
         },
         error: () => {
           this.onError("");
+          this.isLoading = false;
         }
       });
-
-    this.isLoading = false;
   }
 
 }

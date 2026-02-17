@@ -61,10 +61,9 @@ export class Register {
       },
       error: (err) => {
         this.onError("");
+        this.isLoading = false;
       }
     });
-
-    this.isLoading = false;
   }
 
 }

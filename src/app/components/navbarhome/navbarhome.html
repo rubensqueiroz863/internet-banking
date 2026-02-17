@@ -15,7 +15,7 @@
           } 
         </div>
         <button class="extrato" [routerLink]="'/'">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <svg width="22" height="22" viewBox="0 0 28 24" fill="none">
             <path d="M1 12H19M19 12L12 5M19 12L12 19"
                   stroke="currentColor"
                   stroke-width="2"
@@ -23,7 +23,6 @@
                   stroke-linejoin="round"/> 
           </svg>
         </button>
-        
       </div>
       <div class="user-div">
         <span class="side"></span>
@@ -41,25 +40,29 @@
   </div>
   <div class="menu"> 
     <p
+      (click)="closeMenu()"
       (mouseenter)="openMenu('home')" 
       (mouseleave)="closeMenu()">
       Início
       <span></span>
     </p>
-    <p 
+    <p
+      (click)="closeMenu()"
       (mouseenter)="openMenu('conta')" 
       (mouseleave)="closeMenu()">
       Conta Digital
       <span></span>
     </p>
 
-    <p 
+    <p
+      (click)="closeMenu()"
       (mouseenter)="openMenu('transacoes')" 
       (mouseleave)="closeMenu()">
       Transações
       <span></span>
     </p>
     <p
+      (click)="closeMenu()"
       (mouseenter)="openMenu('cartoes')" 
       (mouseleave)="closeMenu()">
       Cartões
