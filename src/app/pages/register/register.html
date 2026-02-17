@@ -1,7 +1,10 @@
 <div class="principal">
 <img src="assets/homebackground1.jpg" alt="Background" />
-
   <div class="register-form">
+    @if (isLoading) {
+      <div class="loading"></div>
+      <p class="loading-text"></p>
+    }
     <h1>Acesse agora sua conta Internet Banking</h1>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <input type="text" required formControlName="name" placeholder="Digite seu nome">

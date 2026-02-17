@@ -18,6 +18,8 @@ export class Register {
 
   resultText = "";
   showMessage = false;
+  isLoading = false;
+
   constructor(private readonly fb: FormBuilder, private readonly registerService: RegisterService, private readonly router: Router, private readonly validarCpf: ValidarCpfService) {
     this.registerForm = this.fb.group({
       name: [''],
@@ -28,10 +30,6 @@ export class Register {
 
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]]
     });
-  }
-
-  onSuccess() {
-    this.router.navigate(['/home']);
   }
 
   onError(message: string) {
@@ -54,14 +52,19 @@ export class Register {
       return;
     };
 
+    this.isLoading = true;
+
     this.registerService.register(formValue).subscribe({
       next: () => {
-        this.onSuccess();
+        this.isLoading = false;
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         this.onError("");
       }
     });
+
+    this.isLoading = false;
   }
 
 }

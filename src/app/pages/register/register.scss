@@ -37,6 +37,22 @@ img {
     width: 90%;
   }
 
+  .loading {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #101010;
+    border-top: 5px solid var(--bg-card);
+    border-radius: 100%;
+    animation: spin 0.8s linear infinite; 
+  }
+
+  .loading-text {
+    text-align: center;
+  }
+
   h1 {
     font-family: 'Montserrat', sans-serif;
     color: var(--text-main);
@@ -46,7 +62,7 @@ img {
   }
 
   a {
-    color: #E5E7EB;
+    color: var(--text-main);
     text-align: center;
   }
 
