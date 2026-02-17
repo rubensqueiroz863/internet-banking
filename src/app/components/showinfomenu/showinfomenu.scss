@@ -1,0 +1,16 @@
+div {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  border: none;
+  background-color: var(--bg-card);
+  cursor: pointer; 
+}
+
+span {
+  min-height: 100%;
+  min-width: 1px;
+  background-color: var(--text-muted);
+}
