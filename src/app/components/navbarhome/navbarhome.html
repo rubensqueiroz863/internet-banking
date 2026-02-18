@@ -15,7 +15,7 @@
           } 
         </div>
         <button class="extrato" [routerLink]="'/'">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <svg width="22" height="22" viewBox="0 0 28 24" fill="none">
             <path d="M1 12H19M19 12L12 5M19 12L12 19"
                   stroke="currentColor"
                   stroke-width="2"
@@ -23,7 +23,6 @@
                   stroke-linejoin="round"/> 
           </svg>
         </button>
-        
       </div>
       <div class="user-div">
         <span class="side"></span>
@@ -46,14 +45,14 @@
       Início
       <span></span>
     </p>
-    <p 
+    <p
       (mouseenter)="openMenu('conta')" 
       (mouseleave)="closeMenu()">
       Conta Digital
       <span></span>
     </p>
 
-    <p 
+    <p
       (mouseenter)="openMenu('transacoes')" 
       (mouseleave)="closeMenu()">
       Transações
@@ -71,12 +70,14 @@
 @if (selectedMenu === 'home') {
   <div 
     class="blur"
+    (click)="closeMenu()"
     (mouseenter)="openMenu('home')"
     (mouseleave)="closeMenu()">
   </div>
 } @else if (selectedMenu === 'conta') {
   <div 
     class="blur"
+    (click)="closeMenu()"
     (mouseenter)="openMenu('conta')"
     (mouseleave)="closeMenu()">
 
@@ -85,6 +86,7 @@
 } @else if (selectedMenu === 'transacoes') {
   <div 
     class="blur"
+    (click)="closeMenu()"
     (mouseenter)="openMenu('transacoes')"
     (mouseleave)="closeMenu()">
 
@@ -93,6 +95,7 @@
 } @else if (selectedMenu === 'cartoes') {
   <div 
     class="blur"
+    (click)="closeMenu()"
     (mouseenter)="openMenu('cartoes')"
     (mouseleave)="closeMenu()">
 

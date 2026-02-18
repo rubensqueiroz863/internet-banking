@@ -3,6 +3,9 @@
     color: var(--text-main);
     font-family: 'AlfaSlabOne';
     font-size: clamp(1.2rem, 1.8vw, 1.2rem);
+    @media (max-width: 640px) {
+      font-size: 0.9rem;
+    }
   }
   cursor: pointer;
 }

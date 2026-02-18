@@ -25,6 +25,7 @@ img {
   padding: 40px;
   border-radius: 20px;
   background-color: var(--bg-card);
+  justify-content: center;
 
   box-shadow: 
     0 10px 25px rgba(0, 0, 0, 0.05),
@@ -41,7 +42,6 @@ img {
   .loading {
     display: flex;
     align-self: center;
-    justify-self: center;
     width: 100px;
     height: 100px;
     border: 1px solid #101010;

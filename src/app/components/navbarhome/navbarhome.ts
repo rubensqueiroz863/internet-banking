@@ -21,6 +21,14 @@ export class Navbarhome implements OnInit {
 
   @Input() page!: string;
 
+  menuItems = [
+    { key: 'home', label: 'Início' },
+    { key: 'conta', label: 'Conta Digital' },
+    { key: 'transacoes', label: 'Transações' },
+    { key: 'cartoes', label: 'Cartões' },
+  ];
+
+
   selectedMenu = "page";
 
   openMenu(name: string) {
@@ -56,7 +64,10 @@ export class Navbarhome implements OnInit {
           console.log(res.balance);
           this.isLoading = false;
         },
-        error: (err) => console.error('Erro ao carregar o saldo', err)
+        error: (err) => {
+          console.error('Erro ao carregar o saldo', err)
+          this.isLoading = false;
+        }
       });
   }
 
