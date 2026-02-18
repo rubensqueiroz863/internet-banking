@@ -1,8 +1,155 @@
 .main {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-secondary);
 }
 
-p {
-  color: var(--text-main);
-} 
+.content {
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.transactions-menu {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  width: 100%;
+  max-width: 720px;
+  transition: all 0.3s ease;
+}
+
+.hidden {
+  background-color: var(--bg-secondary);
+  color: transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.transactions-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transactions-menu h1 {
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.transactions-title button {
+  background: rgba(0,0,0,0.05);
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transactions-title button:hover {
+  background: rgba(0,0,0,0.1);
+  transform: translateX(-2px);
+}
+
+.divider {
+  background-color: rgba(0, 0, 0, 0.08);
+  height: 1px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* ===== SALDO ===== */
+
+.balance-div {
+  margin-bottom: 24px;
+}
+
+.balance-div p:first-child {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.balance {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ===== TRANSAÇÕES ===== */
+
+.transactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.03);
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.transactions:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+.transactions p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Cores */
+
+.sent {
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.received {
+  font-weight: 600;
+  color: #22c55e;
+}
+
+/* ===== EMPTY ===== */
+
+.empty {
+  opacity: 0.5;
+  font-size: 0.9rem;
+  margin: 12px 0;
+}
+
+/* ===== LOADING ===== */
+
+.loading {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top: 3px solid #22c55e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 640px) {
+  .content {
+    padding: 16px;
+  }
+
+  .transactions-menu {
+    padding: 20px;
+  }
+
+  .balance {
+    font-size: 1.4rem;
+  }
+}

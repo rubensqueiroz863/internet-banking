@@ -1,3 +1,63 @@
 <div class="main">
   <app-navbarhome [page]="'home'"></app-navbarhome>
+  <div class="content">
+    <div class="transactions-menu">
+      <div class="transactions-title">
+        <h1>Extrato</h1>
+        <button class="extrato" [routerLink]="'/'">
+          <svg width="22" height="22" viewBox="0 0 28 24" fill="none">
+            <path d="M1 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="divider"></div>
+      <div>
+        <div class="balance-div">
+          <p>Saldo em conta</p>
+          @if (!showInfoService.isOpen && !isLoading) {
+            <p class="balance">{{ balance.balance | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+          } @else if (showInfoService.isOpen) {
+            <p class="hidden">{{ balance.balance | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+          } @else if(isLoading) {
+            <span class="loading"></span>  
+          }
+        </div>
+        <div>
+          <div *ngFor="let month of meses">
+            <h2>{{ month }}</h2>
+
+            <div *ngIf="groupedTransactions[month]?.length; else semTransacoes">
+
+              <div class="transactions" *ngFor="let transaction of groupedTransactions[month]">
+                @if(transaction.toAccountId === accountId) {
+                  <p>Pix Recebido</p>
+                  <p [ngClass]="!showInfoService.isOpen ? 'received' : 'hidden'">
+                    {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+                  </p>
+                  <p>{{ transaction.fromName }}</p> 
+                  <p>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</p> 
+                } @else if(transaction.fromAccountId === accountId) {
+                  <p>Pix Enviado</p>
+                  <p [ngClass]="!showInfoService.isOpen ? 'sent' : 'hidden'">
+                    {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+                  </p>
+                  <p>{{ transaction.toName }}</p> 
+                  <p>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</p> 
+                }
+              </div>
+            </div>
+
+            <ng-template #semTransacoes>
+              <p class="empty">Nenhuma transação</p>
+            </ng-template>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
 </div>
