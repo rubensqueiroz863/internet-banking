@@ -35,7 +35,7 @@
 }
 
 .transactions-menu h1 {
-  font-family: 'Montserrat';
+  font-family: 'OpenSans';
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
@@ -71,12 +71,14 @@
 .balance-div p:first-child {
   font-size: 0.9rem;
   opacity: 0.6;
+  font-family: 'OpenSans';
 }
 
 .balance {
   font-size: 1.8rem;
   font-weight: 700;
   margin-top: 4px;
+  font-family: 'OpenSans';
 }
 
 /* ===== TRANSAÇÕES ===== */
@@ -99,6 +101,11 @@
 .transactions p {
   margin: 0;
   font-size: 0.95rem;
+  font-family: 'OpenSans';
+}
+
+.transactions-month {
+  font-family: 'OpenSans'; 
 }
 
 /* Cores */

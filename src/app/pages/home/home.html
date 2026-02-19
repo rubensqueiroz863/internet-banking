@@ -27,9 +27,8 @@
           }
         </div>
         <div>
-          <div *ngFor="let month of meses">
+          <div class="transactions-month" *ngFor="let month of meses">
             <h2>{{ month }}</h2>
-
             <div *ngIf="groupedTransactions[month]?.length; else semTransacoes">
 
               <div class="transactions" *ngFor="let transaction of groupedTransactions[month]">
@@ -50,13 +49,10 @@
                 }
               </div>
             </div>
-
             <ng-template #semTransacoes>
               <p class="empty">Nenhuma transação</p>
             </ng-template>
-
           </div>
-
       </div>
     </div>
   </div>
