@@ -45,9 +45,7 @@
       Início
       <span></span>
     </p>
-    <p
-      (mouseenter)="openMenu('conta')" 
-      (mouseleave)="closeMenu()">
+    <p (mouseenter)="openMenu('conta')" >
       Conta Digital
       <span></span>
     </p>
@@ -67,38 +65,33 @@
   </div>
 </nav>
 
-@if (selectedMenu === 'home') {
-  <div 
-    class="blur"
-    (click)="closeMenu()"
-    (mouseenter)="openMenu('home')"
-    (mouseleave)="closeMenu()">
+<!-- Menu Conta -->
+<div *ngIf="selectedMenu === 'conta'" class="conta-menu">
+  <h1>Saldo e Extrato</h1>
+  <div class="conta-buttons">
+    <div class="extrato">
+      <button>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Contorno do documento -->
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          
+          <!-- Linhas do “texto” dentro do documento -->
+          <line x1="8" y1="12" x2="16" y2="12"/>
+          <line x1="8" y1="16" x2="16" y2="16"/>
+          <line x1="8" y1="20" x2="12" y2="20"/>
+        </svg>
+      </button>
+      Extrato
+    </div>
+    
   </div>
-} @else if (selectedMenu === 'conta') {
-  <div 
-    class="blur"
-    (click)="closeMenu()"
-    (mouseenter)="openMenu('conta')"
-    (mouseleave)="closeMenu()">
+  
+</div>
 
-    <div>conta</div>
-  </div>
-} @else if (selectedMenu === 'transacoes') {
-  <div 
-    class="blur"
-    (click)="closeMenu()"
-    (mouseenter)="openMenu('transacoes')"
-    (mouseleave)="closeMenu()">
-
-    <div>transações</div>
-  </div>
-} @else if (selectedMenu === 'cartoes') {
-  <div 
-    class="blur"
-    (click)="closeMenu()"
-    (mouseenter)="openMenu('cartoes')"
-    (mouseleave)="closeMenu()">
-
-    <div>cartões</div>
-  </div>
-}
+<!-- Blur de fundo -->
+<div *ngIf="selectedMenu" 
+     class="blur" 
+     (click)="closeMenu()">
+</div>
