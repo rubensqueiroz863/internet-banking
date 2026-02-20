@@ -126,11 +126,11 @@
 }
 
 .menu p {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   cursor: pointer;
   min-width: 25%;
   height: 50px;
@@ -149,8 +149,7 @@
   transition: width 0.2s ease;
 }
 
-.menu p:hover span,
-.menu p.active span {
+.menu p:hover span, .menu p .selected {
   width: 100%;
 }
 
@@ -169,52 +168,6 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 40;
   animation: fadeIn 0.2s ease;
-}
-
-.conta-menu {
-  position: absolute;
-  z-index: 100;
-  border-radius: 12px;
-  height: 400px;
-  width: 400px;
-  top: 50%;
-  left: 50%;
-  pointer-events: all;
-  transform: translate(-50%, -50%); 
-  background-color: var(--bg-card);
-  padding: 0px 24px;
-}
-
-.conta-menu h1 {
-  font-family: 'OpenSans';
-  font-size: clamp(1.2rem, 1.8vw, 1.2rem);
-  padding: 0px 12px;
-}
-
-.conta-buttons {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.conta-buttons button {
-  border: none;
-  border-radius: 12px;
-  color: #6366F1;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.extrato {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  gap: 2px;
-  font-family: 'OpenSans';
-  font-weight: bold;
-  font-size: clamp(0.6rem, 1.6vw, 1rem); 
 }
 
 @keyframes fadeIn {

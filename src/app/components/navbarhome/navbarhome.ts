@@ -5,11 +5,13 @@ import { Showinfomenu } from "../showinfomenu/showinfomenu";
 import { AccountService, BalanceResponse } from '../../services/account.service';
 import { ShowInfoService } from '../../services/showinfomenu.service';
 import { RouterLink } from "@angular/router";
+import { UseSelectedMenu } from '../../services/selectedmenu.service';
+import { SelectedMenuCard } from "../selected-menu-card/selectedmenucard";
 
 @Component({
   selector: 'app-navbarhome',
   standalone: true,
-  imports: [Logo, CommonModule, Showinfomenu, RouterLink],
+  imports: [Logo, CommonModule, Showinfomenu, RouterLink, SelectedMenuCard],
   templateUrl: './navbarhome.html',
   styleUrls: ['./navbarhome.scss'],
 })
@@ -17,27 +19,12 @@ export class Navbarhome implements OnInit {
   balance: BalanceResponse = { balance: 0 };
   accountId: string | null = null;
   isLoading: boolean = false;
-  constructor(private readonly accountService: AccountService,  @Inject(PLATFORM_ID) private readonly platformId: Object, public readonly showInfoService: ShowInfoService) {}
+
+  buttons = [{ class: "extrato", text: "Extrato" }]
+
+  constructor(private readonly accountService: AccountService,  @Inject(PLATFORM_ID) private readonly platformId: Object, public readonly showInfoService: ShowInfoService, public readonly useSelectedMenu: UseSelectedMenu) {}
 
   @Input() page!: string;
-
-  menuItems = [
-    { key: 'home', label: 'Início' },
-    { key: 'conta', label: 'Conta Digital' },
-    { key: 'transacoes', label: 'Transações' },
-    { key: 'cartoes', label: 'Cartões' },
-  ];
-
-
-  selectedMenu = "page";
-
-  openMenu(name: string) {
-    this.selectedMenu = name;
-  }
-
-  closeMenu() {
-    this.selectedMenu = '';
-  }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
