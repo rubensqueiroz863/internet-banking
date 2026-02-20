@@ -35,14 +35,14 @@
                 @if(transaction.toAccountId === accountId) {
                   <p>Pix Recebido</p>
                   <p [ngClass]="!showInfoService.isOpen ? 'received' : 'hidden'">
-                    {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+                    + {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                   </p>
                   <p>{{ transaction.fromName }}</p> 
                   <p>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</p> 
                 } @else if(transaction.fromAccountId === accountId) {
                   <p>Pix Enviado</p>
                   <p [ngClass]="!showInfoService.isOpen ? 'sent' : 'hidden'">
-                    {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+                    - {{ transaction.amount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                   </p>
                   <p>{{ transaction.toName }}</p> 
                   <p>{{ transaction.createdAt | date:'dd/MM/yyyy' }}</p> 

@@ -5,6 +5,7 @@ import { AccountService, BalanceResponse } from '../../services/account.service'
 import { ShowInfoService } from '../../services/showinfomenu.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TransactionRequest, TransactionResponse, TransactionService } from '../../services/transaction.service';
+import { UseSelectedMenu } from '../../services/selectedmenu.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,6 @@ export class Home implements OnInit {
   accountId: string | null = null;
   isLoading = false;
   isTransactionLoading = false;
-
   meses: string[] = this.getUltimosTresMeses();
   groupedTransactions: Record<string, TransactionResponse[]> = {};
 
@@ -28,7 +28,8 @@ export class Home implements OnInit {
     private readonly accountService: AccountService,
     private readonly transactionService: TransactionService,
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    public readonly showInfoService: ShowInfoService
+    public readonly showInfoService: ShowInfoService,
+    public readonly useSelectedMenu: UseSelectedMenu
   ) {}
 
   ngOnInit(): void {
